@@ -1,0 +1,2 @@
+model_checkpoint_path: "unet.model-107850"
+all_model_checkpoint_paths: "unet.model-107850"

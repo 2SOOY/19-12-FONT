@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>Simple Contact Us form</title>
+	<link rel="stylesheet" href="./css/styles.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+</head>
+<body>
+    <form class="form" action="/upload" method="POST" enctype="multipart/form-data">
+        <div class="index-back">
+            <div class="title">
+                <h1>템플릿 업로드</h1>
+            </div>
+            
+            <div class="form-items">
+                <div class= "input">
+                    <input type="file" name="templateImage" multiple>        
+                </div>
+            </div>
+            
+            <div>
+                <input class ="btn" type="submit" value="업로드">
+            </div>
+        </div>
+    </form>
+</body>
+</html>

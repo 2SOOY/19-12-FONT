@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <% include ../views/partials/head %>
+	<!-- <meta charset="UTF-8">
+	<title>Simple Contact Us form</title> -->
+	<link rel="stylesheet" href="./css/styles.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <script src="http://malsup.github.com/jquery.form.js"></script>
+</head>
+<body>
+    <script>
+      var intervalObj;
+      $(document).ready(function() {
+          $('#uploadForm').on('submit',function(e) {
+          e.preventDefault(); // 현재 이벤트의 기본 동작을 중단한다.
+          $('.loader').css({'display': 'inline-block'})
+          $('#upload-btn').css({'display': 'none'})
+          // Begin uploading (this will start entire training)
+          $(this).ajaxSubmit({
+          url:'/progress', 
+          type:"POST",
+          data:'startTrain',
+          error: function(xhr) {
+            $("#status").empty().text('Error: ' + xhr.status);
+          },
+          success: function(response) {
+            window.location.href='/progress'
+            }
+          });
+
+          return false;
+        });
+      });
+    </script>
+
+    <div id="upload_container">
+        <!-- <div class="container" id="upload_top" style="padding-top: 40px"> -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h2 style="font-size: 50px; color: white; padding-top: 20px;">Upload complete</h2>
+            </div>
+        </div>
+        <!-- </div> -->
+        <div class="container" style="padding-top: 20px">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- <form id="uploadForm" class="form" action='/progress' method="POST"> -->
+                    <form id="uploadForm" class="form">
+                        <div class="content" style="background-color: white; padding-top: 30px; padding-bottom: 40px; margin-bottom: 50px; margin-right: 150px; margin-left: 150px; border-radius: 30px;">
+                            <img src="./uploads/1-uniform.png" class="images" />
+                            <img src="./uploads/2-uniform.png" class="images" />
+                            <img src="./uploads/3-uniform.png" class="images" />
+                            <span id = "status" style="display: block;"></span>
+                            <center><input id="upload-btn" style="margin-top: 20px" type="submit" class="btn btn-primary" value="START" name="submit"/></center>
+                            <div class="loader" style="display: none"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>   
+    </div>
+</body>
+</html>
