@@ -71,7 +71,7 @@ def crop_image_uniform(src_dir, dst_dir, unicode_txt):
 
                 x, y, w, h = rec
                 margin = 5
-                origin_ori = image[y+margin : y+h-margin , x+margin : x+w-margin]
+                origin_roi = image[y+margin : y+h-margin , x+margin : x+w-margin]
                 roi = thresh[y+margin : y+h-margin , x+margin : x+w-margin]  # 1 is margin
 
                 # To make contours on purpose
